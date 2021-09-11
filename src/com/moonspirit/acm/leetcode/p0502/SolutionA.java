@@ -4,8 +4,9 @@ import java.util.Arrays;
 import java.util.PriorityQueue;
 
 /**
- * 贪心+堆。
+ * 贪心+堆。O((2n+k)logn) O(n)
  * <p>
+ * 贪心策略：每次都在所有候选者（未被选择且启动资金不超过当前资金）中选择利润最大的任务，最终取得的总金额最大。
  * 时间复杂度：数组排序O(nlogn)，堆插入元素O(nlogn)，取堆顶元素O(klogn)
  * 空间复杂度：数组O(n)，堆O(n)
  */
@@ -20,9 +21,9 @@ class SolutionA {
         for (int i = 0; i < n; i++) {
             projects[i] = new int[]{profits[i], capital[i]};
         }
-        Arrays.sort(projects, (a, b) -> a[1] - b[1]);
+        Arrays.sort(projects, (a, b) -> a[1] - b[1]);  // 启动资金升序排序
 
-        PriorityQueue<Integer> heap = new PriorityQueue<>((a, b) -> b - a);
+        PriorityQueue<Integer> heap = new PriorityQueue<>((a, b) -> b - a);  // 利润大根堆
         int idx = 0;
         while (k-- > 0) {
             while (idx < n && projects[idx][1] <= w) {
