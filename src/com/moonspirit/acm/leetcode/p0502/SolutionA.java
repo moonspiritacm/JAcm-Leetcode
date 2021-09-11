@@ -21,7 +21,7 @@ class SolutionA {
         for (int i = 0; i < n; i++) {
             projects[i] = new int[]{profits[i], capital[i]};
         }
-        Arrays.sort(projects, (a, b) -> a[1] - b[1]);  // 启动资金升序排序
+        Arrays.sort(projects, (a, b) -> a[1] - b[1]);  // 启动资金升序
 
         PriorityQueue<Integer> heap = new PriorityQueue<>((a, b) -> b - a);  // 利润大根堆
         int idx = 0;
