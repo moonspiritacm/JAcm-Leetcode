@@ -20,7 +20,7 @@ class SolutionA {
         for (int i = 0; i < n; i++) {
             ts[i] = new int[]{tasks[i][0], tasks[i][1], i};
         }
-        Arrays.sort(ts, (a, b) -> a[0] - b[0]);  // 开始时间升序
+        Arrays.sort(ts, (a, b) -> a[0] - b[0]);  // 入队时间升序
 
         PriorityQueue<int[]> heap = new PriorityQueue<>((a, b) -> {
             if (a[1] == b[1]) {
@@ -28,8 +28,7 @@ class SolutionA {
             } else {
                 return a[1] - b[1];
             }
-        });  // 耗时小根堆，序号小优先
-
+        });  // 耗时小根堆，耗时最小且序号最小者位于堆顶
         int idx = 0;
         int time = 0;
         int[] res = new int[n];
@@ -39,7 +38,6 @@ class SolutionA {
             }
             if (heap.isEmpty()) {
                 time = ts[idx][0];
-                heap.offer(ts[idx++]);
             } else {
                 int[] task = heap.poll();
                 res[i++] = task[2];
