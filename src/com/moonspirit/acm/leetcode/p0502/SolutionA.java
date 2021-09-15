@@ -13,7 +13,7 @@ import java.util.PriorityQueue;
 class SolutionA {
     public int findMaximizedCapital(int k, int w, int[] profits, int[] capital) {
         if (k <= 0 || profits == null || capital == null || profits.length == 0 || profits.length != capital.length) {
-            return 0;
+            return w;
         }
 
         int n = profits.length;
@@ -23,9 +23,9 @@ class SolutionA {
         }
         Arrays.sort(projects, (a, b) -> a[1] - b[1]);  // 启动资金升序
 
-        PriorityQueue<Integer> heap = new PriorityQueue<>((a, b) -> b - a);  // 利润大根堆
+        PriorityQueue<Integer> heap = new PriorityQueue<>((a, b) -> b - a);  // 利润大根堆，利润最大者位于堆顶
         int idx = 0;
-        while (k-- > 0) {
+        for (int i = 0; i < k; i++) {
             while (idx < n && projects[idx][1] <= w) {
                 heap.offer(projects[idx++][0]);
             }
