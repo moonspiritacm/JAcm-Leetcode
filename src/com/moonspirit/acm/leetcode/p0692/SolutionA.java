@@ -3,7 +3,7 @@ package com.moonspirit.acm.leetcode.p0692;
 import java.util.*;
 
 /**
- * 哈希表+全排序。O(n+mlogm) O(2ml)
+ * 哈希表+全排序。O(n+mlogm) O(ml)
  * <p>
  * 哈希表统计词频：时间复杂度O(n)，空间复杂度O(ml)
  * 全排序求TopK：时间复杂度O(mlogm)，空间复杂度O(ml)，其中包含结果集O(kl)
@@ -31,7 +31,7 @@ class SolutionA {
             } else {
                 return nb - na;
             }
-        });  // 频次降序，字典序升序
+        });  // 词频降序，字典序升序
         return res.subList(0, k);
     }
 }

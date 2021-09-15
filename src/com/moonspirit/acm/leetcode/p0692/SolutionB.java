@@ -27,7 +27,7 @@ class SolutionB {
             } else {
                 return na - nb;
             }
-        });  // 词频小根堆
+        });  // 词频小根堆，词频最小且字典序最后者位于堆顶
         for (String word : map.keySet()) {
             heap.offer(word);
             if (heap.size() > k) {
