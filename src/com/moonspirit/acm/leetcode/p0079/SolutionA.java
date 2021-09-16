@@ -25,10 +25,7 @@ class SolutionA {
 
     public boolean exist(char[][] board, String word) {
         if (board == null || board.length == 0 || board[0].length == 0) {
-            return false;
-        }
-        if (word == null || word.length() == 0) {
-            return true;
+            return word == null || word.length() == 0;
         }
 
         char[] chs = word.toCharArray();
