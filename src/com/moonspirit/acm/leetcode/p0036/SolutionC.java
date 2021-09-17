@@ -1,27 +1,30 @@
 package com.moonspirit.acm.leetcode.p0036;
 
 /**
- * 数组计数。O(1) O(1)
+ * 位运算。O(1) O(1)
  * <p>
- * 对于n×n棋盘，时间复杂度O(n^2)，空间复杂度O(n^2)。
+ * 对于n×n棋盘，时间复杂度O(n^2)，空间复杂度O(n)。
  */
-class SolutionA {
+class SolutionC {
     public boolean isValidSudoku(char[][] board) {
         if (board == null || board.length != 9 || board[0].length != 9) {
             return false;
         }
 
-        boolean[][] row = new boolean[9][9];
-        boolean[][] col = new boolean[9][9];
-        boolean[][][] sqr = new boolean[3][3][9];
+        int[] row = new int[9];
+        int[] col = new int[9];
+        int[] sqr = new int[9];
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
                 if (board[i][j] != '.') {
                     int k = board[i][j] - '1';
-                    if (row[i][k] || col[j][k] || sqr[i / 3][j / 3][k]) {
+                    int x = i / 3 * 3 + j / 3;
+                    if ((row[i] >> k & 1) == 1 || (col[j] >> k & 1) == 1 || (sqr[x] >> k & 1) == 1) {
                         return false;
                     }
-                    row[i][k] = col[j][k] = sqr[i / 3][j / 3][k] = true;
+                    row[i] |= 1 << k;
+                    col[j] |= 1 << k;
+                    sqr[x] |= 1 << k;
                 }
             }
         }
