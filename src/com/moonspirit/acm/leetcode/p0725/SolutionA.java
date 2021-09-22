@@ -1,7 +1,7 @@
 package com.moonspirit.acm.leetcode.p0725;
 
 /**
- * 链表。O(n) O(1)
+ * 模拟。O(n) O(1)
  * <p>
  * 对于长度为n的链表，均匀分隔成k段。最小分配长度为s=k/n（可能为0）。前k%n个段长度s+1，其余段长度s。
  */
