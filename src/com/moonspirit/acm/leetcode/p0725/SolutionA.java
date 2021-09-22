@@ -5,7 +5,7 @@ package com.moonspirit.acm.leetcode.p0725;
  * <p>
  * 对于长度为n的链表，均匀分隔成k段。最小分配长度为s=k/n（可能为0）。前k%n个段长度s+1，其余段长度s。
  */
-class Solution {
+class SolutionA {
     public ListNode[] splitListToParts(ListNode head, int k) {
         if (k <= 0) {
             return new ListNode[0];
