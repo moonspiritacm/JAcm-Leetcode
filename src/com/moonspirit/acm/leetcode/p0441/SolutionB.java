@@ -9,6 +9,7 @@ package com.moonspirit.acm.leetcode.p0441;
  * 反之，最后一个完整阶梯行一定出现在左侧（不包含m），即[l,m-1]。
  * <p>
  * 当查找范围包含某侧端点时，计算中点时应注意取相反的方向，防止死循环。
+ * 当查找范围包含某侧端点时，循环终止条件为l<r，不包含断点为l<=r。
  */
 class Solution {
     public int arrangeCoins(int n) {
