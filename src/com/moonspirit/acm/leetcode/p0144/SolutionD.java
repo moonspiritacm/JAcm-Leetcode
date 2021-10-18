@@ -8,7 +8,7 @@ import java.util.List;
  * <p>
  * 利用树的大量空闲指针（叶子结点），实现开销空间的极限缩减。
  * <p>
- * 对于没有左子树的结点只到达一次，对于有左子树的结点到达两次，前序遍历/中序遍历。
+ * 对于没有左子树的结点只到达一次，对于有左子树的结点到达两次，第一次记录为前序遍历，第二次记录为中序遍历。
  * <p>
  * 1.如果root.left==null，root向右移动（root=root.right）；
  * 2.如果root.left!=null，找到root左子树的最右结点，记为node：
@@ -39,7 +39,7 @@ public class SolutionD {
                     node.right = null;
                     root = root.right;
                 }
-            } else {  // 左孩子为空
+            } else { // 左孩子为空
                 res.add(root.val);
                 root = root.right;
             }
