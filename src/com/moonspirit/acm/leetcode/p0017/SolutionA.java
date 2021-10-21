@@ -14,11 +14,13 @@ class SolutionA {
         }
 
         int k = chs[idx] - '2';
+        /**
         for (char ch : dict[k].toCharArray()) {
             sb.append(ch);
             backtrace(chs, idx + 1, sb, res);
             sb.deleteCharAt(sb.length() - 1);
         }
+         **/
     }
 
     public List<String> letterCombinations(String digits) {
