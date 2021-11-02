@@ -6,9 +6,9 @@ import java.util.Set;
 /**
  * 贪心。O(n) O(n)
  * <p>
- * 假设糖果种类数m，总个数n，能够分到的最大糖果种类数Math.min(n/2,m)。
+ * 假设糖果种类数m，总数n，能够分到的最大糖果种类数Math.min(n/2,m)。
  * 当m>=n/2时，从m类糖果中选取n/2类糖果组成一份，每份糖果选取一颗，达到最大种类数n/2；
- * 当m<n/2时，先从每份糖果选取一颗组成一份，再使用重复糖果凑齐n/2，达到最大种类数m。
+ * 当m<n/2时，先从每种糖果选取一颗，再使用重复糖果凑齐n/2，达到最大种类数m。
  */
 class SolutionA {
     public int distributeCandies(int[] candyType) {
