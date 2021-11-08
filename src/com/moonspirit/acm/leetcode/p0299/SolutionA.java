@@ -9,7 +9,7 @@ package com.moonspirit.acm.leetcode.p0299;
 class SolutionA {
     public String getHint(String secret, String guess) {
         if (secret == null || secret.length() == 0 || guess == null || guess.length() == 0 || secret.length() != guess.length()) {
-            return "0A0B";
+            throw new IllegalArgumentException("非法输入");
         }
 
         char[] chs = secret.toCharArray();
