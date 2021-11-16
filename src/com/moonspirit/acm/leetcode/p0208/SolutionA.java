@@ -1,56 +1,56 @@
 package com.moonspirit.acm.leetcode.p0208;
 
 /**
- * 二维数组。O(L) O(nk)
- *
- * 使用二维数组实现，需要预先估算数组大小。
- * 理论上，数组规模约等于字符总数，
+ * TrieNode。O(L) O(nk)
  */
-class Trie {
-    int N = 100000;
-    int[][] trie;
-    int[] count;
-    int index;
+class TrieNode {
+    TrieNode[] children;
+    boolean isLeaf;
 
-    public Trie() {
-        trie = new int[N][26];
-        count = new int[N];
-        index = 0;
+    public TrieNode() {
+        this.isLeaf = false;
+        this.children = new TrieNode[26];
+    }
+}
+
+class TrieA {
+    TrieNode root;
+
+    public TrieA() {
+        this.root = new TrieNode();
     }
 
     public void insert(String s) {
-        int i = 0;
+        TrieNode node = root;
         for (char ch : s.toCharArray()) {
-            int j = ch - 'a';
-            if (trie[i][j] == 0) {
-                trie[i][j] = ++index;
+            int i = ch - 'a';
+            if (node.children[i] == null) {
+                node.children[i] = new TrieNode();
             }
-            i = trie[i][j];
+            node = node.children[i];
         }
-        count[i]++;
+        node.isLeaf = true;
+    }
+
+    private TrieNode searchPrefix(String s) {
+        TrieNode node = root;
+        for (char ch : s.toCharArray()) {
+            int i = ch - 'a';
+            if (node.children[i] == null) {
+                return null;
+            }
+            node = node.children[i];
+        }
+        return node;
     }
 
     public boolean search(String s) {
-        int i = 0;
-        for (char ch : s.toCharArray()) {
-            int j = ch - 'a';
-            if (trie[i][j] == 0) {
-                return false;
-            }
-            i = trie[i][j];
-        }
-        return count[i] != 0;
+        TrieNode node = searchPrefix(s);
+        return node != null && node.isLeaf;
     }
 
     public boolean startsWith(String s) {
-        int i = 0;
-        for (char ch : s.toCharArray()) {
-            int j = ch - 'a';
-            if (trie[i][j] == 0) {
-                return false;
-            }
-            i = trie[i][j];
-        }
-        return true;
+        TrieNode node = searchPrefix(s);
+        return node != null;
     }
 }
