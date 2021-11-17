@@ -3,8 +3,8 @@ package com.moonspirit.acm.leetcode.p0299;
 /**
  * 模拟。O(n) O(C)
  * <p>
- * 对于字符相同的位置，自增Bulls；
- * 对于字符不同的位置，使用哈希表（数组）统计词频，各数字词频最小值之和，即为Cows。
+ * 如果相同位置的字符相同，Bulls++；
+ * 如果相同位置的字符不同，使用哈希表/数组统计词频，Cows为各数字词频较小值总和。
  */
 class SolutionA {
     public String getHint(String secret, String guess) {
