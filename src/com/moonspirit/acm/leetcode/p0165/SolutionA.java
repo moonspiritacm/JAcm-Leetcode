@@ -1,9 +1,9 @@
 package com.moonspirit.acm.leetcode.p0165;
 
 /**
- * 模拟。O(m+n) O(1)
+ * 模拟。O(max(m,n)) O(m+n)
  */
-class Solution {
+class SolutionA {
     public int compareVersion(String version1, String version2) {
         if (version1 == null || version1.length() == 0 || version2 == null || version2.length() == 0) {
             throw new IllegalArgumentException("非法输入");
@@ -22,15 +22,15 @@ class Solution {
                 v1 *= 10;
                 v1 += ch1[i1++] - '0';
             }
-            i1++;
             while (i2 < n2 && ch2[i2] != '.') {
                 v2 *= 10;
                 v2 += ch2[i2++] - '0';
             }
-            i2++;
             if (v1 != v2) {
                 return v1 > v2 ? 1 : -1;
             }
+            i1++;
+            i2++;
         }
         return 0;
     }
