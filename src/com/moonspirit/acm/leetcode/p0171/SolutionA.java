@@ -9,12 +9,11 @@ class SolutionA {
             throw new IllegalArgumentException("非法输入");
         }
 
-        int num = 0;
-        char[] chs = columnTitle.toCharArray();
-        for (int i = 0; i < chs.length; i++) {
-            num *= 26;
-            num += chs[i] - 'A' + 1;
+        int res = 0;
+        for (char ch : columnTitle.toCharArray()) {
+            res *= 26;
+            res += ch - 'A' + 1;
         }
-        return num;
+        return res;
     }
 }
