@@ -5,12 +5,15 @@ import java.util.Map;
 import java.util.Stack;
 
 /**
- * 栈。O(n) O(n+c)
+ * 哈希表+栈。O(n) O(n+|c|)
+ * <p>
+ * 对于左括号：压入栈顶；
+ * 对于右括号：如果栈空或匹配失败，返回失败；否则，匹配成功，弹出栈顶。
  */
 class SolutionA {
     public boolean isValid(String s) {
         if (s == null || s.length() == 0) {
-            return true;
+            throw new IllegalArgumentException("非法输入");
         }
         if (s.length() % 2 != 0) {
             return false;
@@ -22,9 +25,13 @@ class SolutionA {
         dict.put(']', '[');
         dict.put('}', '{');
         for (char ch : s.toCharArray()) {
-            if (stk.isEmpty() || !dict.containsKey(ch) || dict.get(ch) != stk.peek()) {
-                stk.push(ch);
-            } else {
+            if (dict.containsKey(ch)) { // 右括号
+                if (stk.isEmpty() || dict.get(ch) != stk.peek()) {
+                    return false;
+                } else {
+                    stk.push(ch);
+                }
+            } else { // 左括号
                 stk.pop();
             }
         }
