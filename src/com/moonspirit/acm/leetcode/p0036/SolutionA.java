@@ -8,7 +8,7 @@ package com.moonspirit.acm.leetcode.p0036;
 class SolutionA {
     public boolean isValidSudoku(char[][] board) {
         if (board == null || board.length != 9 || board[0].length != 9) {
-            return false;
+            throw new IllegalArgumentException("非法输入");
         }
 
         boolean[][] row = new boolean[9][9];
@@ -21,7 +21,9 @@ class SolutionA {
                     if (row[i][k] || col[j][k] || sqr[i / 3][j / 3][k]) {
                         return false;
                     }
-                    row[i][k] = col[j][k] = sqr[i / 3][j / 3][k] = true;
+                    row[i][k] = true;
+                    col[j][k] = true;
+                    sqr[i / 3][j / 3][k] = true;
                 }
             }
         }

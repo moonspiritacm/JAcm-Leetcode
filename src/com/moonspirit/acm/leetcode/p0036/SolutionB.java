@@ -15,7 +15,7 @@ import java.util.Set;
 class SolutionB {
     public boolean isValidSudoku(char[][] board) {
         if (board == null || board.length != 9 || board[0].length != 9) {
-            return false;
+            throw new IllegalArgumentException("非法输入");
         }
 
         List<Set<Integer>> row = new ArrayList<>();
@@ -30,13 +30,12 @@ class SolutionB {
             for (int j = 0; j < 9; j++) {
                 if (board[i][j] != '.') {
                     int k = board[i][j] - '1';
-                    int x = i / 3 * 3 + j / 3;
-                    if (row.get(i).contains(k) || col.get(j).contains(k) || sqr.get(x).contains(k)) {
+                    if (row.get(i).contains(k) || col.get(j).contains(k) || sqr.get(i / 3 * 3 + j / 3).contains(k)) {
                         return false;
                     }
                     row.get(i).add(k);
                     col.get(j).add(k);
-                    sqr.get(x).add(k);
+                    sqr.get(i / 3 * 3 + j / 3).add(k);
                 }
             }
         }
