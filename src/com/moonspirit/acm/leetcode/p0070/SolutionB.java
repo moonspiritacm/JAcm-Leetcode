@@ -3,7 +3,7 @@ package com.moonspirit.acm.leetcode.p0070;
 /**
  * 存储空间优化。O(n) O(1)
  * <p>
- * 边界条件：f(0)=0、f(1)=1
+ * 边界条件：f(0)=1、f(1)=1
  * 状态转移方程：f(n)=f(n-1)+f(n-2)
  */
 class SolutionB {

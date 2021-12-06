@@ -3,7 +3,7 @@ package com.moonspirit.acm.leetcode.p0070;
 /**
  * 记忆化递归。O(n) O(n)
  * <p>
- * 边界条件：f(0)=0、f(1)=1
+ * 边界条件：f(0)=1、f(1)=1
  * 状态转移方程：f(n)=f(n-1)+f(n-2)
  */
 class SolutionC {
