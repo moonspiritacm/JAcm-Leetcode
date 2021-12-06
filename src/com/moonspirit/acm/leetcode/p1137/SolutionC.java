@@ -3,8 +3,8 @@ package com.moonspirit.acm.leetcode.p1137;
 /**
  * 记忆化递归。O(n) O(n)
  * <p>
- * 边界条件：F(0)=0、F(1)=1、F(2)=1
- * 状态转移方程：F(n)=F(n-1)+F(n-2)+F(n-3)
+ * 边界条件：f(0)=0、f(1)=1、f(2)=1
+ * 状态转移方程：f(n)=f(n-1)+f(n-2)+f(n-3)
  */
 class SolutionC {
     private int[] dp;
