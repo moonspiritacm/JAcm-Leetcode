@@ -19,33 +19,33 @@ import java.util.List;
  * <p>
  * 时间复杂度：
  * 一般难以准确给出回溯算法的时间复杂度，只能给出不包含剪枝情况的时间复杂度上界。
- * 对于本题而言，时间复杂度取决于候选数组的元素特征：如果候选数组元素较大，目标元素和相对较小，搜索树深度较低，时间复杂度也小；反之亦然。
+ * 时间复杂度取决于候选数组的元素特征：如果候选数组元素较大，目标和相对较小，搜索树深度低，时间复杂度小；反之亦然。
  */
 class SolutionA {
-    private List<Integer> ans;
     private List<List<Integer>> res;
+    private List<Integer> ans;
 
-    private void backtrace(int[] nums, int target, int index) {
+    private void backtrace(int[] candidates, int target, int index) {
         if (target == 0) {
             res.add(new ArrayList<>(ans));
             return;
         }
 
-        for (int i = index; i < nums.length && nums[i] <= target; i++) {
-            ans.add(nums[i]);
-            backtrace(nums, target - nums[i], i);
+        for (int i = index; i < candidates.length && candidates[i] <= target; i++) {
+            ans.add(candidates[i]);
+            backtrace(candidates, target - candidates[i], i);
             ans.remove(ans.size() - 1);
         }
     }
 
     public List<List<Integer>> combinationSum(int[] candidates, int target) {
         if (candidates == null || candidates.length == 0 || target <= 0) {
-            throw new IllegalArgumentException("非法输入");
+            return new ArrayList<>();
         }
 
-        Arrays.sort(candidates);
-        ans = new ArrayList<>();
         res = new ArrayList<>();
+        ans = new ArrayList<>();
+        Arrays.sort(candidates);
         backtrace(candidates, target, 0);
         return res;
     }
