@@ -4,7 +4,7 @@ package com.moonspirit.acm.leetcode.p1185;
  * 模拟。O(1) O(1)
  */
 class Solution {
-    static String[] strs = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
+    static String[] dict = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
     static int[] days = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 
     public String dayOfTheWeek(int day, int month, int year) {
@@ -30,6 +30,6 @@ class Solution {
 
         // 天数
         sum += day;
-        return strs[sum % 7];
+        return dict[sum % 7];
     }
 }
