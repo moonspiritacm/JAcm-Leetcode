@@ -73,8 +73,11 @@ public class SolutionA {
     }
 
     public int catMouseGame(int[][] graph) {
-        bound = 2 * graph.length;
+        if (graph == null || graph.length < 3 || graph[0].length == 0) {
+            throw new IllegalArgumentException("非法输入");
+        }
 
+        bound = 2 * graph.length;
         // 初始化为-1（未计算）
         for (int k = 0; k < bound; k++) {
             for (int i = 0; i < graph.length; i++) {
