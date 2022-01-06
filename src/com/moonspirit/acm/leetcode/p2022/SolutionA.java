@@ -8,7 +8,7 @@ class SolutionA {
         if (original == null || original.length == 0 || m <= 0 || n <= 0) {
             throw new IllegalArgumentException("非法输入");
         }
-        if (original.length != m * n) {
+        if (m * n != original.length) {
             return new int[0][0];
         }
 
