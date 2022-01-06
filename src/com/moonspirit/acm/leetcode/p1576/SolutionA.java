@@ -3,7 +3,7 @@ package com.moonspirit.acm.leetcode.p1576;
 /**
  * 字符串模拟。O(n) O(1)
  * <p>
- * 保证替换字符与前后字符（若存在）不同，最多在3个字符内找到替换值，并不需要遍历所有字母，不妨使用a、b、c。
+ * 保证替换字符与前后字符（若存在）不同，最多在3个字符内找到替换值，不需要遍历所有字母，不妨使用a、b、c。
  */
 class SolutionA {
     public String modifyString(String s) {
