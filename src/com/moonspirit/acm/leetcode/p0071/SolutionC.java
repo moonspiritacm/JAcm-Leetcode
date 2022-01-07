@@ -14,7 +14,6 @@ class SolutionC {
 
         int i = 0;
         int n = path.length();
-        StringBuilder sb = new StringBuilder();
         Deque<String> deque = new LinkedList<>();
         while (i < n) {
             int j = i;
@@ -22,25 +21,25 @@ class SolutionC {
                 j++;
             }
 
-            String str = path.substring(i, j);
-            if ("..".equals(str)) {  // 弹出栈顶元素
+            String name = path.substring(i, j);
+            if ("..".equals(name)) {  // 弹出栈顶元素
                 if (!deque.isEmpty()) {
                     deque.pollLast();
                 }
-            } else if (".".equals(str)) {  // 不做处理
-            } else if (str.length() > 0) {  // 压入栈中
-                deque.offerLast(str);
+            } else if (".".equals(name)) {  // 不做处理
+            } else if (name.length() > 0) {  // 压入栈中
+                deque.offerLast(name);
             }
             i = j + 1;
         }
 
-        sb = new StringBuilder();
+        StringBuilder sb = new StringBuilder();
         while (!deque.isEmpty()) {
-            sb.append('/');
+            sb.append("/");
             sb.append(deque.pollFirst());
         }
         if (sb.length() == 0) {
-            sb.append('/');
+            sb.append("/");
         }
         return sb.toString();
     }

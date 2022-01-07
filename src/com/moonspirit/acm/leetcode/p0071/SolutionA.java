@@ -17,16 +17,15 @@ class SolutionA {
         Deque<String> deque = new LinkedList<>();
         for (int i = 0; i <= n; i++) {
             if (i == n || path.charAt(i) == '/') {
-                String str = sb.toString();
+                String name = sb.toString();
                 sb = new StringBuilder();
-                if ("..".equals(str)) {  // 弹出栈顶元素
+                if ("..".equals(name)) {  // 弹出栈顶元素
                     if (!deque.isEmpty()) {
                         deque.pollLast();
                     }
-                } else if (".".equals(str)) {  // 不做处理
-                    continue;
-                } else if (str.length() > 0) {  // 压入栈中
-                    deque.offerLast(str);
+                } else if (".".equals(name)) {  // 不做处理
+                } else if (name.length() > 0) {  // 压入栈中
+                    deque.offerLast(name);
                 }
             } else {
                 sb.append(path.charAt(i));
@@ -35,11 +34,11 @@ class SolutionA {
 
         sb = new StringBuilder();
         while (!deque.isEmpty()) {
-            sb.append('/');
+            sb.append("/");
             sb.append(deque.pollFirst());
         }
         if (sb.length() == 0) {
-            sb.append('/');
+            sb.append("/");
         }
         return sb.toString();
     }

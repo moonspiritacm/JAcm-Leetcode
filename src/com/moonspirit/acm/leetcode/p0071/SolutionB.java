@@ -20,7 +20,6 @@ class SolutionB {
                     deque.pollLast();
                 }
             } else if (".".equals(name)) {  // 不做处理
-                continue;
             } else if (name.length() > 0) {  // 压入栈中
                 deque.offerLast(name);
             }
@@ -28,11 +27,11 @@ class SolutionB {
 
         StringBuilder sb = new StringBuilder();
         while (!deque.isEmpty()) {
-            sb.append('/');
+            sb.append("/");
             sb.append(deque.pollFirst());
         }
         if (sb.length() == 0) {
-            sb.append('/');
+            sb.append("/");
         }
         return sb.toString();
     }
