@@ -23,9 +23,8 @@ class SolutionA {
         n = n - k % n - 1;  // 新链表尾
         curr.next = head;  // 闭合成环
         curr = head;
-        while (n > 0) {
+        while (n-- > 0) {
             curr = curr.next;
-            n--;
         }
         head = curr.next;  // 新链表头
         curr.next = null;  // 断开头尾
