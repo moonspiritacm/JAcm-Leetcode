@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * 回溯。O(n!) O(n^2)
+ * 回溯。O(n^2+n!) O(n^2)
  */
 class SolutionA {
     private List<Set<Integer>> list;
