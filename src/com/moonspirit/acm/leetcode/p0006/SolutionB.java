@@ -1,7 +1,7 @@
 package com.moonspirit.acm.leetcode.p0006;
 
 /**
- * 模拟填入。O(m+n) O(m*n)
+ * 模拟。O(m+2n) O(m*n)
  */
 class SolutionB {
     static int N = 1010;
@@ -16,8 +16,8 @@ class SolutionB {
             return s;
         }
 
-        int n = s.length();
         int m = numRows;
+        int n = s.length();
         for (int i = 0; i < m; i++) {
             ids[i] = 0;
         }
