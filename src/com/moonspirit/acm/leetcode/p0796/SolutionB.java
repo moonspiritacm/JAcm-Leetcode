@@ -14,11 +14,11 @@ class SolutionB {
             return false;
         }
 
-        int n = s.length();
-        for (int i = 0; i < n; i++) {
+        int size = s.length();
+        for (int i = 0; i < size; i++) {
             boolean flag = true;
-            for (int j = 0; j < n; j++) {
-                if (s.charAt((i + j) % n) != goal.charAt(j)) {
+            for (int j = 0; j < size; j++) {
+                if (s.charAt((i + j) % size) != goal.charAt(j)) {
                     flag = false;
                     break;
                 }
