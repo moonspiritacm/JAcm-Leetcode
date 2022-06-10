@@ -33,3 +33,31 @@ class SolutionB {
         return res;
     }
 }
+
+class Solution {
+    public List<Integer> preorderTraversal(TreeNode root) {
+        if (root == null) {
+            return new ArrayList<>();
+        }
+
+        List<Integer> res = new ArrayList<>();
+        Stack<TreeNode> stk = new Stack<>();
+        TreeNode node = root;
+        while (true) {
+            while(node!=null) {
+                stk.push(node);
+                res.add(node.val);
+                node=node.left;
+            }
+            node=stk.pop();
+            while(node.right==null&&!stk.isEmpty()) {
+                node=stk.pop();
+            }
+            if(stk.isEmpty()) {
+                break;
+            }
+            node=node.right;
+        }
+        return res;
+    }
+}

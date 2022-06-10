@@ -5,6 +5,8 @@ import java.util.List;
 
 /**
  * 递归。O(n) O(n)/O(logn)
+ * <p>
+ * 空间复杂度：主要是递归栈开销，与树深度正相关。平均情况下 O(logn)，最坏情况下树呈链状 O(n)。
  */
 class SolutionA {
     private void dfs(TreeNode root, List<Integer> res) {
@@ -18,10 +20,6 @@ class SolutionA {
     }
 
     public List<Integer> preorderTraversal(TreeNode root) {
-        if (root == null) {
-            return new ArrayList<>();
-        }
-
         List<Integer> res = new ArrayList<>();
         dfs(root, res);
         return res;
